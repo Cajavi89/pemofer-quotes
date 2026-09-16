@@ -1,0 +1,164 @@
+[
+  {
+    "id": "quo-20260398",
+    "number": "20260398",
+    "clientReference": "O95-1267-96192641360",
+    "subject": "Cambio de llantas traseras LVX694",
+    "customerId": "cus-ihsa",
+    "contactName": "Ing. Diana Carolina Álvarez",
+    "contactRole": "Analista Procura",
+    "date": "2026-08-26",
+    "validityDays": 5,
+    "paymentTerms": "Crédito 60 días",
+    "deliveryPlace": "Cúcuta",
+    "pricesPlusVat": true,
+    "signerName": "Claudia Rodríguez",
+    "signerPhone": "3227103774",
+    "status": "follow_up",
+    "nextFollowUpAt": "2026-09-02",
+    "createdAt": "2026-08-26T16:16:00.000Z",
+    "items": [
+      {
+        "id": "qi-1",
+        "productId": "prd-llanta-at2",
+        "description": "Llantas Hankook 264/70/R16",
+        "quantity": 2,
+        "unit": "UNIDAD",
+        "unitPrice": 940000,
+        "deliveryTime": "2 días",
+        "observations": "Opción Dynapro AT2"
+      },
+      {
+        "id": "qi-2",
+        "productId": "prd-llanta-mt",
+        "description": "Llantas Hankook 264/70/R16",
+        "quantity": 2,
+        "unit": "UNIDAD",
+        "unitPrice": 780000,
+        "deliveryTime": "2 días",
+        "observations": "Opción Dynapro MT"
+      },
+      {
+        "id": "qi-3",
+        "productId": "prd-valvula",
+        "description": "Válvulas neumáticas",
+        "quantity": 2,
+        "unit": "UNIDAD",
+        "unitPrice": 16800,
+        "deliveryTime": "2 días",
+        "observations": "Para inflado de llantas"
+      }
+    ]
+  },
+  {
+    "id": "quo-20260401",
+    "number": "20260401",
+    "clientReference": "OC-ANDES-441",
+    "subject": "Suministro tubería PVC presión 2\"",
+    "customerId": "cus-acme",
+    "contactName": "Carlos Peña",
+    "contactRole": "Jefe de compras",
+    "date": "2026-09-08",
+    "validityDays": 8,
+    "paymentTerms": "Crédito 30 días",
+    "deliveryPlace": "Bogotá",
+    "pricesPlusVat": true,
+    "signerName": "Claudia Rodríguez",
+    "signerPhone": "3227103774",
+    "status": "sent",
+    "nextFollowUpAt": "2026-09-16",
+    "createdAt": "2026-09-08T11:40:00.000Z",
+    "items": [
+      {
+        "id": "qi-4",
+        "productId": "prd-codo-pvc-2",
+        "description": "Codo PVC presión 2\"",
+        "quantity": 20,
+        "unit": "UNIDAD",
+        "unitPrice": 24800,
+        "deliveryTime": "5 días",
+        "observations": ""
+      },
+      {
+        "id": "qi-5",
+        "productId": "prd-brida-2",
+        "description": "Brida PVC 2\"",
+        "quantity": 10,
+        "unit": "UNIDAD",
+        "unitPrice": 28900,
+        "deliveryTime": "5 días",
+        "observations": ""
+      },
+      {
+        "id": "qi-6",
+        "productId": "prd-valvula-2",
+        "description": "Válvula de bola PVC 2\"",
+        "quantity": 6,
+        "unit": "UNIDAD",
+        "unitPrice": 72000,
+        "deliveryTime": "8 días",
+        "observations": "Sujeto a stock"
+      }
+    ]
+  },
+  {
+    "id": "quo-20260412",
+    "number": "20260412",
+    "clientReference": "",
+    "subject": "Reposición accesorios PVC 1\"",
+    "customerId": "cus-ferre",
+    "contactName": "Liliana Gómez",
+    "contactRole": "Coordinadora de abastecimiento",
+    "date": "2026-09-14",
+    "validityDays": 5,
+    "paymentTerms": "Contado",
+    "deliveryPlace": "Bucaramanga",
+    "pricesPlusVat": true,
+    "signerName": "Angie Martínez",
+    "signerPhone": "3201112233",
+    "status": "draft",
+    "createdAt": "2026-09-14T15:05:00.000Z",
+    "items": [
+      {
+        "id": "qi-7",
+        "productId": "prd-codo-pvc-1",
+        "description": "Codo PVC presión 1\"",
+        "quantity": 40,
+        "unit": "UNIDAD",
+        "unitPrice": 8900,
+        "deliveryTime": "3 días",
+        "observations": ""
+      }
+    ]
+  },
+  {
+    "id": "quo-20260370",
+    "number": "20260370",
+    "clientReference": "REQ-FIO-88",
+    "subject": "Válvulas PVC para red de agua",
+    "customerId": "cus-ferre",
+    "contactName": "Liliana Gómez",
+    "contactRole": "Coordinadora de abastecimiento",
+    "date": "2026-07-21",
+    "validityDays": 10,
+    "paymentTerms": "Crédito 30 días",
+    "deliveryPlace": "Bucaramanga",
+    "pricesPlusVat": true,
+    "signerName": "Claudia Rodríguez",
+    "signerPhone": "3227103774",
+    "status": "awarded",
+    "createdAt": "2026-07-21T09:00:00.000Z",
+    "items": [
+      {
+        "id": "qi-8",
+        "productId": "prd-valvula-2",
+        "description": "Válvula de bola PVC 2\"",
+        "quantity": 12,
+        "unit": "UNIDAD",
+        "unitPrice": 72000,
+        "deliveryTime": "7 días",
+        "observations": ""
+      }
+    ]
+  }
+]

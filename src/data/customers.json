@@ -1,0 +1,41 @@
+[
+  {
+    "id": "cus-ihsa",
+    "name": "Iberoamericana de Hidrocarburos Energy Colombia S.A.S",
+    "nit": "900.000.000-1",
+    "city": "Cúcuta",
+    "contact": {
+      "name": "Ing. Diana Carolina Álvarez",
+      "role": "Analista Procura",
+      "phone": "3100000000",
+      "email": "dalvarez@ihsa.example"
+    },
+    "createdAt": "2026-03-12T10:00:00.000Z"
+  },
+  {
+    "id": "cus-acme",
+    "name": "Constructora Andes del Norte S.A.S",
+    "nit": "830.512.447-3",
+    "city": "Bogotá",
+    "contact": {
+      "name": "Carlos Peña",
+      "role": "Jefe de compras",
+      "phone": "3158881122",
+      "email": "cpena@andesnorte.example"
+    },
+    "createdAt": "2026-05-04T14:20:00.000Z"
+  },
+  {
+    "id": "cus-ferre",
+    "name": "Ferretería Industrial del Oriente Ltda",
+    "nit": "800.221.009-4",
+    "city": "Bucaramanga",
+    "contact": {
+      "name": "Liliana Gómez",
+      "role": "Coordinadora de abastecimiento",
+      "phone": "3004455667",
+      "email": "lgomez@fio.example"
+    },
+    "createdAt": "2026-06-18T09:15:00.000Z"
+  }
+]

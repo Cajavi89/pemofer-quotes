@@ -1,0 +1,86 @@
+[
+  {
+    "id": "prd-llanta-at2",
+    "description": "Llanta Hankook Dynapro AT2 265/70 R16",
+    "unit": "UNIDAD",
+    "brand": "Hankook",
+    "category": "Llantas",
+    "cost": 780000,
+    "salePrice": 940000,
+    "supplier": "Distribuidora Automotriz del Norte",
+    "updatedAt": "2026-08-25T11:00:00.000Z",
+    "notes": "Opción AT2 Xtreme. Precio comercial Pemofer."
+  },
+  {
+    "id": "prd-llanta-mt",
+    "description": "Llanta Hankook Dynapro MT 265/70 R16",
+    "unit": "UNIDAD",
+    "brand": "Hankook",
+    "category": "Llantas",
+    "cost": 650000,
+    "salePrice": 780000,
+    "supplier": "Distribuidora Automotriz del Norte",
+    "updatedAt": "2026-08-25T11:00:00.000Z",
+    "notes": "Opción MT. Alternativa de menor costo."
+  },
+  {
+    "id": "prd-valvula",
+    "description": "Válvula neumática para inflado de llantas",
+    "unit": "UNIDAD",
+    "brand": "Genérica",
+    "category": "Accesorios",
+    "cost": 9800,
+    "salePrice": 16800,
+    "supplier": "Suministros Neumáticos SAS",
+    "updatedAt": "2026-08-20T16:00:00.000Z",
+    "notes": "Se cotiza junto con cambio de llantas."
+  },
+  {
+    "id": "prd-codo-pvc-2",
+    "description": "Codo PVC presión 2\"",
+    "unit": "UNIDAD",
+    "brand": "Pavco",
+    "category": "Tubería PVC",
+    "cost": 18500,
+    "salePrice": 24800,
+    "supplier": "Pavco / Distribuidor Bogotá",
+    "updatedAt": "2026-09-10T08:30:00.000Z",
+    "notes": "Precio sensible a lista quincenal."
+  },
+  {
+    "id": "prd-codo-pvc-1",
+    "description": "Codo PVC presión 1\"",
+    "unit": "UNIDAD",
+    "brand": "Pavco",
+    "category": "Tubería PVC",
+    "cost": 6200,
+    "salePrice": 8900,
+    "supplier": "Pavco / Distribuidor Bogotá",
+    "updatedAt": "2026-09-10T08:30:00.000Z",
+    "notes": ""
+  },
+  {
+    "id": "prd-brida-2",
+    "description": "Brida PVC 2\"",
+    "unit": "UNIDAD",
+    "brand": "Pavco",
+    "category": "Tubería PVC",
+    "cost": 21400,
+    "salePrice": 28900,
+    "supplier": "Pavco / Distribuidor Bogotá",
+    "updatedAt": "2026-09-02T10:00:00.000Z",
+    "notes": ""
+  },
+  {
+    "id": "prd-valvula-2",
+    "description": "Válvula de bola PVC 2\"",
+    "unit": "UNIDAD",
+    "brand": "GF",
+    "category": "Válvulas",
+    "cost": 54000,
+    "salePrice": 72000,
+    "supplier": "Hidráulica Central",
+    "updatedAt": "2026-08-28T09:00:00.000Z",
+    "notes": "Confirmar disponibilidad antes de cotizar."
+  }
+]
