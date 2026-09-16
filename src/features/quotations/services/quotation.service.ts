@@ -8,6 +8,11 @@ export async function getQuotations() {
   return readCollection<Quotation[]>(QUOTATIONS_FILE)
 }
 
+export async function getQuotationById(id: string) {
+  const quotations = await getQuotations()
+  return quotations.find((quotation) => quotation.id === id) ?? null
+}
+
 export async function createQuotation(payload: QuotationFormValues) {
   const quotations = await getQuotations()
   const year = new Date().getFullYear()

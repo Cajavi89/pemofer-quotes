@@ -75,7 +75,12 @@ export function DashboardView({
               {recent.map((quotation) => (
                 <TableRow key={quotation.id}>
                   <TableCell className="font-medium">
-                    {quotation.number}
+                    <Link
+                      href={routes.quotationDetail(quotation.id)}
+                      className="underline-offset-4 hover:underline"
+                    >
+                      {quotation.number}
+                    </Link>
                   </TableCell>
                   <TableCell>
                     {customersById.get(quotation.customerId)?.name ?? 'Cliente'}

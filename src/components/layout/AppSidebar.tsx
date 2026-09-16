@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { FilePlus2, LayoutDashboard, Package, Users } from 'lucide-react'
+import { FilePlus2, FileText, LayoutDashboard, Package, Users } from 'lucide-react'
 import {
   Sidebar,
   SidebarContent,
@@ -21,10 +21,22 @@ import { routes } from '@/constants/routes'
 
 const navItems = [
   { href: routes.dashboard, title: 'Dashboard', icon: LayoutDashboard },
+  { href: routes.quotations, title: 'Cotizaciones', icon: FileText },
   { href: routes.quotationsNew, title: 'Nueva cotización', icon: FilePlus2 },
   { href: routes.customersNew, title: 'Clientes', icon: Users },
   { href: routes.productsNew, title: 'Productos', icon: Package }
 ]
+
+function isNavActive(pathname: string, href: string) {
+  if (href === routes.quotations) {
+    return (
+      pathname === href ||
+      (pathname.startsWith(`${href}/`) && pathname !== routes.quotationsNew)
+    )
+  }
+
+  return pathname === href
+}
 
 export function AppSidebar() {
   const pathname = usePathname()
@@ -52,7 +64,7 @@ export function AppSidebar() {
                 <SidebarMenuItem key={item.href}>
                   <SidebarMenuButton
                     asChild
-                    isActive={pathname === item.href}
+                    isActive={isNavActive(pathname, item.href)}
                     tooltip={item.title}
                   >
                     <Link href={item.href}>

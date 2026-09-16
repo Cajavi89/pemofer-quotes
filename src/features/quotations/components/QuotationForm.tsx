@@ -118,10 +118,10 @@ export function QuotationForm({
       return
     }
 
-    const created = (await response.json()) as { number: string }
+    const created = (await response.json()) as { id: string; number: string }
     toast.success(`Cotización ${created.number} guardada`)
     router.refresh()
-    router.push(routes.dashboard)
+    router.push(routes.quotationDetail(created.id))
   })
 
   return (
