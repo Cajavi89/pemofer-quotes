@@ -37,6 +37,7 @@ export interface Quotation {
   signerPhone: string
   status: QuotationStatus
   items: QuotationItem[]
+  referenceImageUrls?: string[]
   nextFollowUpAt?: string
   createdAt: string
 }

@@ -13,6 +13,7 @@ import {
 import { Separator } from '@/components/ui/separator'
 import type { Customer } from '@/features/customers/interfaces/customer'
 import { QuotationStatusBadge } from '@/features/quotations/components/QuotationStatusBadge'
+import { QuotationPdfButton } from '@/features/quotations/components/QuotationPdfButton'
 import type { Quotation } from '@/features/quotations/interfaces/quotation'
 import {
   getLineTotal,
@@ -173,9 +174,14 @@ export function QuotationsSummaryPanel({
             {formatCOP(subtotal)}
           </p>
         </div>
-        <Button asChild className="w-full">
+        <Button asChild className="w-full" variant="outline">
           <Link href={routes.quotationDetail(quotation.id)}>Ver detalle</Link>
         </Button>
+        <QuotationPdfButton
+          quotationId={quotation.id}
+          number={quotation.number}
+          className="w-full"
+        />
       </CardFooter>
     </Card>
   )

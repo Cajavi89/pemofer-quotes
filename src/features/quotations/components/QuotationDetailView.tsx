@@ -11,6 +11,8 @@ import {
 import { Button } from '@/components/ui/button'
 import { PageTitle } from '@/components/shared/PageTitle'
 import type { Customer } from '@/features/customers/interfaces/customer'
+import { QuotationPdfButton } from '@/features/quotations/components/QuotationPdfButton'
+import { QuotationReferenceImagesEditor } from '@/features/quotations/components/QuotationReferenceImagesEditor'
 import { QuotationStatusBadge } from '@/features/quotations/components/QuotationStatusBadge'
 import type { Quotation } from '@/features/quotations/interfaces/quotation'
 import {
@@ -55,6 +57,10 @@ export function QuotationDetailView({
         />
         <div className="flex items-center gap-2">
           <QuotationStatusBadge status={quotation.status} />
+          <QuotationPdfButton
+            quotationId={quotation.id}
+            number={quotation.number}
+          />
           <Button asChild variant="outline">
             <Link href={routes.quotations}>Volver al listado</Link>
           </Button>
@@ -150,6 +156,11 @@ export function QuotationDetailView({
           </Table>
         </CardContent>
       </Card>
+
+      <QuotationReferenceImagesEditor
+        quotationId={quotation.id}
+        urls={quotation.referenceImageUrls ?? []}
+      />
 
       <div className="flex justify-end">
         <div className="text-right">

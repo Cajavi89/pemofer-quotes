@@ -29,6 +29,7 @@ import { PRODUCT_UNITS } from '@/features/products/constants/productUnits'
 import { QUOTATION_STATUS_LABELS } from '@/features/quotations/constants/quotationStatus'
 import type { QuotationStatus } from '@/features/quotations/interfaces/quotation'
 import { getQuotationSubtotal } from '@/features/quotations/utils/quotationTotals'
+import { ReferenceImagesField } from '@/features/quotations/components/ReferenceImagesField'
 import {
   quotationSchema,
   type QuotationFormValues
@@ -76,7 +77,8 @@ export function QuotationForm({
       signerPhone: DEFAULT_SIGNER.phone,
       status: 'draft',
       nextFollowUpAt: '',
-      items: [{ ...emptyItem }]
+      items: [{ ...emptyItem }],
+      referenceImageUrls: []
     }
   })
 
@@ -526,6 +528,22 @@ export function QuotationForm({
             })}
           </div>
         </section>
+
+        <FormField
+          control={form.control}
+          name="referenceImageUrls"
+          render={({ field }) => (
+            <FormItem>
+              <FormControl>
+                <ReferenceImagesField
+                  urls={field.value ?? []}
+                  onChange={field.onChange}
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
 
         <div className="flex flex-wrap items-center justify-between gap-4 border-t pt-4">
           <div>

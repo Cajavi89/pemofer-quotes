@@ -45,3 +45,16 @@ export function formatDate(isoDate: string) {
     year: 'numeric'
   }).format(new Date(year, month - 1, day))
 }
+
+export function formatLetterDate(isoDate: string, city = 'Bogotá D.C.') {
+  const [year, month, day] = isoDate.split('-').map(Number)
+  if (!year || !month || !day) return isoDate
+
+  const formatted = new Intl.DateTimeFormat('es-CO', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric'
+  }).format(new Date(year, month - 1, day))
+
+  return `${city.toUpperCase()}, ${formatted.toUpperCase()}`
+}

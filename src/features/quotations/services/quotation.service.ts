@@ -26,6 +26,7 @@ export async function createQuotation(payload: QuotationFormValues) {
     id: crypto.randomUUID(),
     number: lastNumber ? String(lastNumber + 1) : `${year}0001`,
     createdAt: new Date().toISOString(),
+    referenceImageUrls: payload.referenceImageUrls ?? [],
     items: payload.items.map((item) => ({
       ...item,
       id: crypto.randomUUID(),
@@ -37,4 +38,22 @@ export async function createQuotation(payload: QuotationFormValues) {
   quotations.unshift(created)
   await writeCollection(QUOTATIONS_FILE, quotations)
   return created
+}
+
+export async function updateQuotation(
+  id: string,
+  patch: Partial<Pick<Quotation, 'referenceImageUrls'>>
+) {
+  const quotations = await getQuotations()
+  const index = quotations.findIndex((quotation) => quotation.id === id)
+  if (index < 0) return null
+
+  quotations[index] = {
+    ...quotations[index],
+    ...patch,
+    referenceImageUrls:
+      patch.referenceImageUrls ?? quotations[index].referenceImageUrls ?? []
+  }
+  await writeCollection(QUOTATIONS_FILE, quotations)
+  return quotations[index]
 }
