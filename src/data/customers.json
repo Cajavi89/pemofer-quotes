@@ -37,5 +37,356 @@
       "email": "lgomez@fio.example"
     },
     "createdAt": "2026-06-18T09:15:00.000Z"
+  },
+  {
+    "id": "cus-01-hidraulicadelcaribe",
+    "name": "Hidráulica del Caribe S.A.S",
+    "nit": "800.002.781-3",
+    "city": "Bogotá",
+    "contact": {
+      "name": "Ana Arias",
+      "role": "Analista Procura",
+      "phone": "3101003460",
+      "email": "ana.arias@hidraulicadelcaribe.example"
+    },
+    "createdAt": "2025-11-04T09:00:00.000Z"
+  },
+  {
+    "id": "cus-02-metalurgicasantander",
+    "name": "Metalúrgica Santander Ltda",
+    "nit": "800.002.918-4",
+    "city": "Medellín",
+    "contact": {
+      "name": "Andrés Delgado",
+      "role": "Jefe de compras",
+      "phone": "3111003633",
+      "email": "andres.delgado@metalurgicasantander.example"
+    },
+    "createdAt": "2025-11-05T09:00:00.000Z"
+  },
+  {
+    "id": "cus-03-obrascivilesdelvalle",
+    "name": "Obras Civiles del Valle S.A.",
+    "nit": "800.003.055-5",
+    "city": "Cali",
+    "contact": {
+      "name": "Beatriz García",
+      "role": "Coordinadora de abastecimiento",
+      "phone": "3121003806",
+      "email": "beatriz.garcia@obrascivilesdelvalle.example"
+    },
+    "createdAt": "2025-11-06T09:00:00.000Z"
+  },
+  {
+    "id": "cus-04-energiaandina",
+    "name": "Energía Andina S.A.S",
+    "nit": "800.003.192-6",
+    "city": "Barranquilla",
+    "contact": {
+      "name": "Camilo Jiménez",
+      "role": "Ingeniero de planta",
+      "phone": "3131003979",
+      "email": "camilo.jimenez@energiaandina.example"
+    },
+    "createdAt": "2025-11-07T09:00:00.000Z"
+  },
+  {
+    "id": "cus-05-mineradelcesar",
+    "name": "Minera del Cesar Ltda",
+    "nit": "800.003.329-7",
+    "city": "Bucaramanga",
+    "contact": {
+      "name": "Daniela Nieto",
+      "role": "Supervisor de almacén",
+      "phone": "3141004152",
+      "email": "daniela.nieto@mineradelcesar.example"
+    },
+    "createdAt": "2025-11-08T09:00:00.000Z"
+  },
+  {
+    "id": "cus-06-acueductoregional",
+    "name": "Acueducto Regional S.A.",
+    "nit": "800.003.466-8",
+    "city": "Cúcuta",
+    "contact": {
+      "name": "Eduardo Quiroga",
+      "role": "Director de compras",
+      "phone": "3151004325",
+      "email": "eduardo.quiroga@acueductoregional.example"
+    },
+    "createdAt": "2025-11-09T09:00:00.000Z"
+  },
+  {
+    "id": "cus-07-petroserviciosllanos",
+    "name": "Petroservicios Llanos S.A.S",
+    "nit": "800.003.603-9",
+    "city": "Pereira",
+    "contact": {
+      "name": "Fernanda Torres",
+      "role": "Analista Procura",
+      "phone": "3161004498",
+      "email": "fernanda.torres@petroserviciosllanos.example"
+    },
+    "createdAt": "2025-11-10T09:00:00.000Z"
+  },
+  {
+    "id": "cus-08-montajesindustrialesde",
+    "name": "Montajes Industriales del Café Ltda",
+    "nit": "800.003.740-1",
+    "city": "Cartagena",
+    "contact": {
+      "name": "Gabriel Bernal",
+      "role": "Jefe de compras",
+      "phone": "3171004671",
+      "email": "gabriel.bernal@montajesindustrialesde.example"
+    },
+    "createdAt": "2025-11-11T09:00:00.000Z"
+  },
+  {
+    "id": "cus-09-tuberiayvalvulasdelpac",
+    "name": "Tubería y Válvulas del Pacífico S.A.",
+    "nit": "800.003.877-2",
+    "city": "Santa Marta",
+    "contact": {
+      "name": "Helena Espinosa",
+      "role": "Coordinadora de abastecimiento",
+      "phone": "3181004844",
+      "email": "helena.espinosa@tuberiayvalvulasdelpac.example"
+    },
+    "createdAt": "2025-11-12T09:00:00.000Z"
+  },
+  {
+    "id": "cus-10-constructorasierraneva",
+    "name": "Constructora Sierra Nevada S.A.S",
+    "nit": "800.004.014-3",
+    "city": "Villavicencio",
+    "contact": {
+      "name": "Iván Herrera",
+      "role": "Ingeniero de planta",
+      "phone": "3191005017",
+      "email": "ivan.herrera@constructorasierraneva.example"
+    },
+    "createdAt": "2025-11-13T09:00:00.000Z"
+  },
+  {
+    "id": "cus-11-mantenimientooilfield",
+    "name": "Mantenimiento Oilfield Ltda",
+    "nit": "800.004.151-4",
+    "city": "Ibagué",
+    "contact": {
+      "name": "Juliana Lozano",
+      "role": "Supervisor de almacén",
+      "phone": "3201005190",
+      "email": "juliana.lozano@mantenimientooilfield.example"
+    },
+    "createdAt": "2025-11-14T09:00:00.000Z"
+  },
+  {
+    "id": "cus-12-suministrosferrososdel",
+    "name": "Suministros Ferrosos del Norte S.A.",
+    "nit": "800.004.288-5",
+    "city": "Manizales",
+    "contact": {
+      "name": "Luis Ortega",
+      "role": "Director de compras",
+      "phone": "3211005363",
+      "email": "luis.ortega@suministrosferrososdel.example"
+    },
+    "createdAt": "2025-11-15T09:00:00.000Z"
+  },
+  {
+    "id": "cus-13-ingenieriaderedes",
+    "name": "Ingeniería de Redes S.A.S",
+    "nit": "800.004.425-6",
+    "city": "Bogotá",
+    "contact": {
+      "name": "Mónica Ramírez",
+      "role": "Analista Procura",
+      "phone": "3221005536",
+      "email": "monica.ramirez@ingenieriaderedes.example"
+    },
+    "createdAt": "2025-11-16T09:00:00.000Z"
+  },
+  {
+    "id": "cus-14-plantadetratamientoocc",
+    "name": "Planta de Tratamiento Occidente Ltda",
+    "nit": "800.004.562-7",
+    "city": "Medellín",
+    "contact": {
+      "name": "Nicolás Vargas",
+      "role": "Jefe de compras",
+      "phone": "3231005709",
+      "email": "nicolas.vargas@plantadetratamientoocc.example"
+    },
+    "createdAt": "2025-11-17T09:00:00.000Z"
+  },
+  {
+    "id": "cus-15-soldadurasyaccesorios",
+    "name": "Soldaduras y Accesorios S.A.",
+    "nit": "800.004.699-8",
+    "city": "Cali",
+    "contact": {
+      "name": "Olga Castaño",
+      "role": "Coordinadora de abastecimiento",
+      "phone": "3241005882",
+      "email": "olga.castano@soldadurasyaccesorios.example"
+    },
+    "createdAt": "2025-11-18T09:00:00.000Z"
+  },
+  {
+    "id": "cus-16-proyectosvialesdeltoli",
+    "name": "Proyectos Viales del Tolima S.A.S",
+    "nit": "800.004.836-9",
+    "city": "Barranquilla",
+    "contact": {
+      "name": "Pablo Franco",
+      "role": "Ingeniero de planta",
+      "phone": "3251006055",
+      "email": "pablo.franco@proyectosvialesdeltoli.example"
+    },
+    "createdAt": "2025-11-19T09:00:00.000Z"
+  },
+  {
+    "id": "cus-17-equiposdeperforacion",
+    "name": "Equipos de Perforación Ltda",
+    "nit": "800.004.973-1",
+    "city": "Bucaramanga",
+    "contact": {
+      "name": "Rocío Ibáñez",
+      "role": "Supervisor de almacén",
+      "phone": "3261006228",
+      "email": "rocio.ibanez@equiposdeperforacion.example"
+    },
+    "createdAt": "2025-11-20T09:00:00.000Z"
+  },
+  {
+    "id": "cus-18-almacenindustrialdelsu",
+    "name": "Almacén Industrial del Sur S.A.",
+    "nit": "800.005.110-2",
+    "city": "Cúcuta",
+    "contact": {
+      "name": "Sergio Mendoza",
+      "role": "Director de compras",
+      "phone": "3271006401",
+      "email": "sergio.mendoza@almacenindustrialdelsu.example"
+    },
+    "createdAt": "2025-11-21T09:00:00.000Z"
+  },
+  {
+    "id": "cus-19-comercializadoradeempa",
+    "name": "Comercializadora de Empaques S.A.S",
+    "nit": "800.005.247-3",
+    "city": "Pereira",
+    "contact": {
+      "name": "Tatiana Pardo",
+      "role": "Analista Procura",
+      "phone": "3281006574",
+      "email": "tatiana.pardo@comercializadoradeempa.example"
+    },
+    "createdAt": "2025-11-22T09:00:00.000Z"
+  },
+  {
+    "id": "cus-20-servicioselectricosdel",
+    "name": "Servicios Eléctricos del Magdalena Ltda",
+    "nit": "800.005.384-4",
+    "city": "Cartagena",
+    "contact": {
+      "name": "Víctor Suárez",
+      "role": "Jefe de compras",
+      "phone": "3291006747",
+      "email": "victor.suarez@servicioselectricosdel.example"
+    },
+    "createdAt": "2025-11-23T09:00:00.000Z"
+  },
+  {
+    "id": "cus-21-fabricadeempaquesrigid",
+    "name": "Fábrica de Empaques Rígidos S.A.",
+    "nit": "800.005.521-5",
+    "city": "Santa Marta",
+    "contact": {
+      "name": "Ana Arias",
+      "role": "Coordinadora de abastecimiento",
+      "phone": "3101006920",
+      "email": "ana.arias@fabricadeempaquesrigid.example"
+    },
+    "createdAt": "2025-11-24T09:00:00.000Z"
+  },
+  {
+    "id": "cus-22-operadoradecamposmenor",
+    "name": "Operadora de Campos Menores S.A.S",
+    "nit": "800.005.658-6",
+    "city": "Villavicencio",
+    "contact": {
+      "name": "Andrés Delgado",
+      "role": "Ingeniero de planta",
+      "phone": "3111007093",
+      "email": "andres.delgado@operadoradecamposmenor.example"
+    },
+    "createdAt": "2025-11-25T09:00:00.000Z"
+  },
+  {
+    "id": "cus-23-refaccionespesadas",
+    "name": "Refacciones Pesadas Ltda",
+    "nit": "800.005.795-7",
+    "city": "Ibagué",
+    "contact": {
+      "name": "Beatriz García",
+      "role": "Supervisor de almacén",
+      "phone": "3121007266",
+      "email": "beatriz.garcia@refaccionespesadas.example"
+    },
+    "createdAt": "2025-11-26T09:00:00.000Z"
+  },
+  {
+    "id": "cus-24-concretosyagregados",
+    "name": "Concretos y Agregados S.A.",
+    "nit": "800.005.932-8",
+    "city": "Manizales",
+    "contact": {
+      "name": "Camilo Jiménez",
+      "role": "Director de compras",
+      "phone": "3131007439",
+      "email": "camilo.jimenez@concretosyagregados.example"
+    },
+    "createdAt": "2025-11-27T09:00:00.000Z"
+  },
+  {
+    "id": "cus-25-logisticaportuaria",
+    "name": "Logística Portuaria S.A.S",
+    "nit": "800.006.069-9",
+    "city": "Bogotá",
+    "contact": {
+      "name": "Daniela Nieto",
+      "role": "Analista Procura",
+      "phone": "3141007612",
+      "email": "daniela.nieto@logisticaportuaria.example"
+    },
+    "createdAt": "2025-11-28T09:00:00.000Z"
+  },
+  {
+    "id": "cus-26-maquinariaamarilla",
+    "name": "Maquinaria Amarilla Ltda",
+    "nit": "800.006.206-1",
+    "city": "Medellín",
+    "contact": {
+      "name": "Eduardo Quiroga",
+      "role": "Jefe de compras",
+      "phone": "3151007785",
+      "email": "eduardo.quiroga@maquinariaamarilla.example"
+    },
+    "createdAt": "2025-11-29T09:00:00.000Z"
+  },
+  {
+    "id": "cus-27-redesdegasnatural",
+    "name": "Redes de Gas Natural S.A.",
+    "nit": "800.006.343-2",
+    "city": "Cali",
+    "contact": {
+      "name": "Fernanda Torres",
+      "role": "Coordinadora de abastecimiento",
+      "phone": "3161007958",
+      "email": "fernanda.torres@redesdegasnatural.example"
+    },
+    "createdAt": "2025-11-30T09:00:00.000Z"
   }
 ]

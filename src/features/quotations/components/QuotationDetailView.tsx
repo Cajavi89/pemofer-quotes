@@ -47,8 +47,8 @@ export function QuotationDetailView({
   const subtotal = getQuotationSubtotal(quotation.items)
 
   return (
-    <section className="space-y-6">
-      <div className="flex flex-wrap items-end justify-between gap-3">
+    <section className="space-y-4">
+      <div className="flex flex-wrap items-end justify-between gap-2">
         <PageTitle
           title={`Cotización ${quotation.number}`}
           subtitle={quotation.subject}
@@ -65,7 +65,7 @@ export function QuotationDetailView({
         <CardHeader>
           <CardTitle>Encabezado</CardTitle>
         </CardHeader>
-        <CardContent className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+        <CardContent className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
           <DetailField label="Emisor" value={`${COMPANY.name} · NIT ${COMPANY.nit}`} />
           <DetailField
             label="Señores"
@@ -154,7 +154,7 @@ export function QuotationDetailView({
       <div className="flex justify-end">
         <div className="text-right">
           <p className="text-sm text-muted-foreground">Subtotal COP</p>
-          <p className="text-2xl font-semibold">{formatCOP(subtotal)}</p>
+          <p className="text-lg font-semibold">{formatCOP(subtotal)}</p>
         </div>
       </div>
     </section>

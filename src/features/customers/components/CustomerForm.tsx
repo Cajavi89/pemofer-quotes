@@ -57,7 +57,7 @@ export function CustomerForm() {
 
   return (
     <Form {...form}>
-      <form onSubmit={onSubmit} className="grid gap-4 md:grid-cols-2">
+      <form onSubmit={onSubmit} className="grid gap-3 md:grid-cols-2">
         <FormField
           control={form.control}
           name="name"

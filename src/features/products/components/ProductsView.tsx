@@ -15,7 +15,7 @@ import { formatCOP } from '@/lib/money'
 
 export function ProductsView({ products }: { products: Product[] }) {
   return (
-    <section className="space-y-6">
+    <section className="space-y-4">
       <PageTitle
         title="Productos"
         subtitle="Catálogo plano para rellenar ítems. El costo es interno; a la cotización va el precio de venta"

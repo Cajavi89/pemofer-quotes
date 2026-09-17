@@ -44,13 +44,13 @@ export function AppSidebar() {
 
   return (
     <Sidebar collapsible="icon" variant="floating">
-      <SidebarHeader className="px-3 py-4">
+      <SidebarHeader className="px-2 py-2">
         <Link href={routes.dashboard} className="flex items-center gap-2">
           <Image
             src="/logo-pemofer.png"
             alt="Pemofer"
-            width={state === 'expanded' ? 168 : 40}
-            height={state === 'expanded' ? 70 : 40}
+            width={state === 'expanded' ? 132 : 32}
+            height={state === 'expanded' ? 55 : 32}
             className="rounded-sm object-contain"
           />
         </Link>

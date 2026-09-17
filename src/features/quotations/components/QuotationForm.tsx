@@ -126,8 +126,8 @@ export function QuotationForm({
 
   return (
     <Form {...form}>
-      <form onSubmit={onSubmit} className="space-y-8">
-        <section className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+      <form onSubmit={onSubmit} className="space-y-4">
+        <section className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
           <FormField
             control={form.control}
             name="customerId"
@@ -351,7 +351,7 @@ export function QuotationForm({
 
         <section className="space-y-3">
           <div className="flex items-center justify-between">
-            <h2 className="text-lg font-semibold">Ítems</h2>
+            <h2 className="text-sm font-semibold">Ítems</h2>
             <Button
               type="button"
               variant="outline"
@@ -362,14 +362,14 @@ export function QuotationForm({
             </Button>
           </div>
 
-          <div className="space-y-4">
+          <div className="space-y-2">
             {fields.map((field, index) => {
               const quantity = Number(items?.[index]?.quantity ?? 0)
               const unitPrice = Number(items?.[index]?.unitPrice ?? 0)
               return (
                 <div
                   key={field.id}
-                  className="grid gap-3 rounded-lg border bg-card p-4 md:grid-cols-12"
+                  className="grid gap-2 rounded-md border bg-card p-3 md:grid-cols-12"
                 >
                   <FormField
                     control={form.control}
@@ -530,7 +530,7 @@ export function QuotationForm({
         <div className="flex flex-wrap items-center justify-between gap-4 border-t pt-4">
           <div>
             <p className="text-sm text-muted-foreground">Subtotal COP</p>
-            <p className="text-2xl font-semibold">{formatCOP(subtotal)}</p>
+            <p className="text-lg font-semibold">{formatCOP(subtotal)}</p>
             <p className="text-xs text-muted-foreground">
               {form.watch('pricesPlusVat')
                 ? 'Precios más IVA, igual que en la plantilla Excel'

@@ -31,7 +31,7 @@ export function DashboardView({
 
   return (
     <section>
-      <div className="mb-6 flex flex-wrap items-end justify-between gap-3">
+      <div className="mb-4 flex flex-wrap items-end justify-between gap-2">
         <PageTitle
           title="Dashboard"
           subtitle="Estado comercial del piloto, con la data quemada de Pemofer"
@@ -41,7 +41,7 @@ export function DashboardView({
         </Button>
       </div>
 
-      <div className="mb-8 grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
+      <div className="mb-4 grid gap-2 sm:grid-cols-2 xl:grid-cols-3">
         {metrics.map((metric) => (
           <Card key={metric.label}>
             <CardHeader className="pb-2">
@@ -50,7 +50,7 @@ export function DashboardView({
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-2xl font-semibold">{metric.value}</p>
+              <p className="text-lg font-semibold">{metric.value}</p>
             </CardContent>
           </Card>
         ))}

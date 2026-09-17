@@ -31,10 +31,10 @@ const buttonVariants = cva(
           'bg-transparent text-gray-600 dark:text-gray-400 w-fit hover:bg-transparent'
       },
       size: {
-        default: 'h-9 px-4 py-2',
-        sm: 'h-8 rounded-md px-3 text-xs',
-        lg: 'h-10 rounded-md px-8',
-        icon: 'h-9 w-9',
+        default: 'h-8 px-3 text-xs',
+        sm: 'h-7 rounded-md px-2.5 text-xs',
+        lg: 'h-9 rounded-md px-6 text-sm',
+        icon: 'h-8 w-8',
         sortFilter: 'h-fit w-fit p-0'
       }
     },

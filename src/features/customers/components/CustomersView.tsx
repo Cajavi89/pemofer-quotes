@@ -13,7 +13,7 @@ import type { Customer } from '@/features/customers/interfaces/customer'
 
 export function CustomersView({ customers }: { customers: Customer[] }) {
   return (
-    <section className="space-y-6">
+    <section className="space-y-4">
       <PageTitle
         title="Clientes"
         subtitle="Razón social, NIT y contacto de procura. Es lo que va en el encabezado de la cotización"

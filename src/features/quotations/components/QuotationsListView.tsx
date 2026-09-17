@@ -13,24 +13,36 @@ import { PageTitle } from '@/components/shared/PageTitle'
 import type { Customer } from '@/features/customers/interfaces/customer'
 import { QuotationStatusBadge } from '@/features/quotations/components/QuotationStatusBadge'
 import type { Quotation } from '@/features/quotations/interfaces/quotation'
+import { QuotationsFiltersBar } from '@/features/quotations/components/QuotationsFiltersBar'
 import { getQuotationSubtotal } from '@/features/quotations/utils/quotationTotals'
+import {
+  hasActiveQuotationFilters,
+  type QuotationListFilters
+} from '@/features/quotations/utils/filterQuotations'
 import { routes } from '@/constants/routes'
 import { formatDate } from '@/lib/dates'
 import { formatCOP } from '@/lib/money'
 
 export function QuotationsListView({
   quotations,
-  customers
+  filteredQuotations,
+  customers,
+  filters
 }: {
   quotations: Quotation[]
+  filteredQuotations: Quotation[]
   customers: Customer[]
+  filters: QuotationListFilters
 }) {
   const customersById = new Map(customers.map((item) => [item.id, item]))
-  const ordered = [...quotations].sort((a, b) => b.date.localeCompare(a.date))
+  const ordered = [...filteredQuotations].sort((a, b) =>
+    b.date.localeCompare(a.date)
+  )
+  const isFiltered = hasActiveQuotationFilters(filters)
 
   return (
     <section>
-      <div className="mb-6 flex flex-wrap items-end justify-between gap-3">
+      <div className="mb-4 flex flex-wrap items-end justify-between gap-2">
         <PageTitle
           title="Cotizaciones"
           subtitle="Listado de ofertas. Entra a cualquiera para ver el detalle completo"
@@ -40,14 +52,24 @@ export function QuotationsListView({
         </Button>
       </div>
 
+      <QuotationsFiltersBar customers={customers} filters={filters} />
+
       <Card>
         <CardHeader>
-          <CardTitle>{ordered.length} registradas</CardTitle>
+          <CardTitle>
+            {isFiltered
+              ? `${ordered.length} de ${quotations.length} registradas`
+              : `${quotations.length} registradas`}
+          </CardTitle>
         </CardHeader>
         <CardContent>
-          {ordered.length === 0 ? (
+          {quotations.length === 0 ? (
             <p className="text-sm text-muted-foreground">
               Aún no hay cotizaciones. Crea la primera para verla aquí.
+            </p>
+          ) : ordered.length === 0 ? (
+            <p className="text-sm text-muted-foreground">
+              No hay cotizaciones que coincidan con la búsqueda o los filtros.
             </p>
           ) : (
             <Table>
