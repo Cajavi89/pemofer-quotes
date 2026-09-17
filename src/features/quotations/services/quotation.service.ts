@@ -26,12 +26,12 @@ export async function createQuotation(payload: QuotationFormValues) {
     id: crypto.randomUUID(),
     number: lastNumber ? String(lastNumber + 1) : `${year}0001`,
     createdAt: new Date().toISOString(),
-    referenceImageUrls: payload.referenceImageUrls ?? [],
     items: payload.items.map((item) => ({
       ...item,
       id: crypto.randomUUID(),
       productId: item.productId || undefined,
-      observations: item.observations ?? ''
+      observations: item.observations ?? '',
+      referenceImageUrls: item.referenceImageUrls ?? []
     }))
   }
 
@@ -40,19 +40,24 @@ export async function createQuotation(payload: QuotationFormValues) {
   return created
 }
 
-export async function updateQuotation(
+export async function updateQuotationItemImages(
   id: string,
-  patch: Partial<Pick<Quotation, 'referenceImageUrls'>>
+  itemId: string,
+  referenceImageUrls: string[]
 ) {
   const quotations = await getQuotations()
   const index = quotations.findIndex((quotation) => quotation.id === id)
   if (index < 0) return null
 
+  const items = quotations[index].items
+  const itemIndex = items.findIndex((item) => item.id === itemId)
+  if (itemIndex < 0) return null
+
   quotations[index] = {
     ...quotations[index],
-    ...patch,
-    referenceImageUrls:
-      patch.referenceImageUrls ?? quotations[index].referenceImageUrls ?? []
+    items: items.map((item) =>
+      item.id === itemId ? { ...item, referenceImageUrls } : item
+    )
   }
   await writeCollection(QUOTATIONS_FILE, quotations)
   return quotations[index]

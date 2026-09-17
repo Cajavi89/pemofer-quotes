@@ -3,14 +3,15 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { toast } from 'sonner'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { ReferenceImagesField } from '@/features/quotations/components/ReferenceImagesField'
 
-export function QuotationReferenceImagesEditor({
+export function QuotationItemImagesEditor({
   quotationId,
+  itemId,
   urls
 }: {
   quotationId: string
+  itemId: string
   urls: string[]
 }) {
   const router = useRouter()
@@ -22,7 +23,7 @@ export function QuotationReferenceImagesEditor({
     const response = await fetch(`/api/quotations/${quotationId}`, {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ referenceImageUrls: next })
+      body: JSON.stringify({ itemId, referenceImageUrls: next })
     })
 
     if (!response.ok) {
@@ -35,13 +36,11 @@ export function QuotationReferenceImagesEditor({
   }
 
   return (
-    <Card>
-      <CardHeader>
-        <CardTitle>Imágenes de referencia</CardTitle>
-      </CardHeader>
-      <CardContent>
-        <ReferenceImagesField urls={currentUrls} onChange={(next) => void persist(next)} />
-      </CardContent>
-    </Card>
+    <ReferenceImagesField
+      id={`item-${itemId}-images`}
+      urls={currentUrls}
+      compact
+      onChange={(next) => void persist(next)}
+    />
   )
 }

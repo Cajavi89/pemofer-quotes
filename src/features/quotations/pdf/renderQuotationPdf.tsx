@@ -22,18 +22,25 @@ export async function renderQuotationPdf(
   customer: Customer | null
 ) {
   const logoSrc = (await toPdfImageSrc(LOGO_PATH)) ?? LOGO_PATH
-  const referenceImages = (
+  const itemImages = Object.fromEntries(
     await Promise.all(
-      (quotation.referenceImageUrls ?? []).map((url) => toPdfImageSrc(url))
+      quotation.items.map(async (item) => {
+        const srcs = (
+          await Promise.all(
+            (item.referenceImageUrls ?? []).map((url) => toPdfImageSrc(url))
+          )
+        ).filter((src): src is string => Boolean(src))
+        return [item.id, srcs] as const
+      })
     )
-  ).filter((src): src is string => Boolean(src))
+  )
 
   const buffer = await renderToBuffer(
     <QuotationPdfDocument
       quotation={quotation}
       customer={customer}
       logoSrc={logoSrc}
-      referenceImages={referenceImages}
+      itemImages={itemImages}
     />
   )
 

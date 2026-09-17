@@ -1,4 +1,3 @@
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { PageTitle } from '@/components/shared/PageTitle'
 import type { Customer } from '@/features/customers/interfaces/customer'
 import type { Product } from '@/features/products/interfaces/product'
@@ -13,19 +12,12 @@ export function NewQuotationView({
   products: Product[]
 }) {
   return (
-    <section>
+    <section className="space-y-4">
       <PageTitle
         title="Nueva cotización"
-        subtitle={`Sigue el formato de ${COMPANY.name}: señores, atención, ítems, validez y precios más IVA`}
+        subtitle={`Sigue el formato de ${COMPANY.name}: señores, atención, ítems, validez e IVA`}
       />
-      <Card>
-        <CardHeader>
-          <CardTitle>Datos de la oferta</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <QuotationForm customers={customers} products={products} />
-        </CardContent>
-      </Card>
+      <QuotationForm customers={customers} products={products} />
     </section>
   )
 }

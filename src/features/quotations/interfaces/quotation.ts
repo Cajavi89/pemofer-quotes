@@ -18,6 +18,7 @@ export interface QuotationItem {
   unitPrice: number
   deliveryTime: string
   observations: string
+  referenceImageUrls?: string[]
 }
 
 export interface Quotation {
@@ -37,7 +38,6 @@ export interface Quotation {
   signerPhone: string
   status: QuotationStatus
   items: QuotationItem[]
-  referenceImageUrls?: string[]
   nextFollowUpAt?: string
   createdAt: string
 }

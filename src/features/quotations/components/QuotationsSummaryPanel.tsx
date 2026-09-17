@@ -14,11 +14,9 @@ import { Separator } from '@/components/ui/separator'
 import type { Customer } from '@/features/customers/interfaces/customer'
 import { QuotationStatusBadge } from '@/features/quotations/components/QuotationStatusBadge'
 import { QuotationPdfButton } from '@/features/quotations/components/QuotationPdfButton'
+import { QuotationTotals } from '@/features/quotations/components/QuotationTotals'
 import type { Quotation } from '@/features/quotations/interfaces/quotation'
-import {
-  getLineTotal,
-  getQuotationSubtotal
-} from '@/features/quotations/utils/quotationTotals'
+import { getLineTotal } from '@/features/quotations/utils/quotationTotals'
 import { routes } from '@/constants/routes'
 import {
   addDaysToIsoDate,
@@ -54,7 +52,6 @@ export function QuotationsSummaryPanel({
   customer: Customer | null
   onClear?: () => void
 }) {
-  const subtotal = getQuotationSubtotal(quotation.items)
   const validUntil = addDaysToIsoDate(quotation.date, quotation.validityDays)
   const previewItems = quotation.items.slice(0, ITEM_PREVIEW_LIMIT)
   const extraItems = quotation.items.length - previewItems.length
@@ -161,19 +158,11 @@ export function QuotationsSummaryPanel({
       </CardContent>
 
       <CardFooter className="shrink-0 flex-col items-stretch gap-3 border-t pt-3">
-        <div className="flex items-end justify-between gap-2">
-          <div>
-            <p className="text-xs text-muted-foreground">Subtotal</p>
-            <p className="text-xs text-muted-foreground">
-              {quotation.pricesPlusVat
-                ? 'Precios más IVA'
-                : 'Precios incluyen IVA'}
-            </p>
-          </div>
-          <p className="text-base font-semibold tabular-nums">
-            {formatCOP(subtotal)}
-          </p>
-        </div>
+        <QuotationTotals
+          items={quotation.items}
+          includeVat={quotation.pricesPlusVat}
+          align="end"
+        />
         <Button asChild className="w-full" variant="outline">
           <Link href={routes.quotationDetail(quotation.id)}>Ver detalle</Link>
         </Button>

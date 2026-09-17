@@ -12,7 +12,7 @@ import {
 import type { Customer } from '@/features/customers/interfaces/customer'
 import { QuotationStatusBadge } from '@/features/quotations/components/QuotationStatusBadge'
 import type { Quotation } from '@/features/quotations/interfaces/quotation'
-import { getQuotationSubtotal } from '@/features/quotations/utils/quotationTotals'
+import { getQuotationAmounts } from '@/features/quotations/utils/quotationTotals'
 import {
   SELECTED_QUOTATION_PARAM,
   withQuotationsQuery
@@ -49,7 +49,7 @@ export function QuotationsListTable({
           <TableHead>Cliente</TableHead>
           <TableHead>Asunto</TableHead>
           <TableHead>Estado</TableHead>
-          <TableHead className="text-right">Subtotal</TableHead>
+          <TableHead className="text-right">Total</TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>
@@ -83,7 +83,12 @@ export function QuotationsListTable({
                 <QuotationStatusBadge status={quotation.status} />
               </TableCell>
               <TableCell className="text-right">
-                {formatCOP(getQuotationSubtotal(quotation.items))}
+                {formatCOP(
+                  getQuotationAmounts(
+                    quotation.items,
+                    quotation.pricesPlusVat
+                  ).total
+                )}
               </TableCell>
             </TableRow>
           )

@@ -10,7 +10,8 @@ export const quotationItemSchema = z.object({
     .number()
     .nonnegative('El valor unitario no puede ser negativo'),
   deliveryTime: z.string().min(1, 'Indica el tiempo de entrega'),
-  observations: z.string().optional().default('')
+  observations: z.string().optional().default(''),
+  referenceImageUrls: z.array(z.string().min(1)).max(4).optional().default([])
 })
 
 export const quotationSchema = z.object({
@@ -28,8 +29,7 @@ export const quotationSchema = z.object({
   signerPhone: z.string().min(7, 'Ingresa el teléfono del firmante'),
   status: z.enum(QUOTATION_STATUSES),
   nextFollowUpAt: z.string().optional().default(''),
-  items: z.array(quotationItemSchema).min(1, 'Agrega al menos un ítem'),
-  referenceImageUrls: z.array(z.string().min(1)).max(4).optional().default([])
+  items: z.array(quotationItemSchema).min(1, 'Agrega al menos un ítem')
 })
 
 export type QuotationFormValues = z.infer<typeof quotationSchema>

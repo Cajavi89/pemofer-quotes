@@ -2,12 +2,13 @@ import { NextResponse } from 'next/server'
 import { z } from 'zod'
 import {
   getQuotationById,
-  updateQuotation
+  updateQuotationItemImages
 } from '@/features/quotations/services/quotation.service'
 
 export const dynamic = 'force-dynamic'
 
 const patchSchema = z.object({
+  itemId: z.string().min(1),
   referenceImageUrls: z.array(z.string().min(1)).max(4)
 })
 
@@ -29,6 +30,13 @@ export async function PATCH(
     )
   }
 
-  const updated = await updateQuotation(id, parsed.data)
+  const updated = await updateQuotationItemImages(
+    id,
+    parsed.data.itemId,
+    parsed.data.referenceImageUrls
+  )
+  if (!updated) {
+    return NextResponse.json({ error: 'Ítem no encontrado' }, { status: 404 })
+  }
   return NextResponse.json(updated)
 }

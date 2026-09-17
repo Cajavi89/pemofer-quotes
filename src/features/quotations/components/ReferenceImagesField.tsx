@@ -7,28 +7,32 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 
-const MAX_REFERENCE_IMAGES = 4
+export const MAX_ITEM_REFERENCE_IMAGES = 4
 
 export function ReferenceImagesField({
+  id,
   urls,
-  onChange
+  onChange,
+  compact = false
 }: {
+  id: string
   urls: string[]
   onChange: (urls: string[]) => void
+  compact?: boolean
 }) {
   const inputRef = useRef<HTMLInputElement>(null)
   const [uploading, setUploading] = useState(false)
 
   async function uploadFiles(fileList: FileList | null) {
     if (!fileList?.length) return
-    if (urls.length >= MAX_REFERENCE_IMAGES) {
-      toast.error(`Puedes adjuntar hasta ${MAX_REFERENCE_IMAGES} imágenes`)
+    if (urls.length >= MAX_ITEM_REFERENCE_IMAGES) {
+      toast.error(`Puedes adjuntar hasta ${MAX_ITEM_REFERENCE_IMAGES} imágenes`)
       return
     }
 
     setUploading(true)
     try {
-      const remaining = MAX_REFERENCE_IMAGES - urls.length
+      const remaining = MAX_ITEM_REFERENCE_IMAGES - urls.length
       const next = [...urls]
 
       for (const file of Array.from(fileList).slice(0, remaining)) {
@@ -59,16 +63,24 @@ export function ReferenceImagesField({
     <div className="space-y-2">
       <div className="flex flex-wrap items-end justify-between gap-2">
         <div>
-          <Label htmlFor="reference-images">Imágenes de referencia</Label>
-          <p className="text-xs text-muted-foreground">
-            Opcional. Se incluyen en el PDF, como en la cotización de Excel.
-          </p>
+          <Label htmlFor={id}>
+            {compact ? 'Imagen de referencia' : 'Imágenes de referencia'}
+          </Label>
+          {compact ? (
+            <p className="text-xs text-muted-foreground">
+              Opcional. Se asocia a este ítem en el PDF.
+            </p>
+          ) : (
+            <p className="text-xs text-muted-foreground">
+              Opcional. Se incluye en el PDF de este ítem.
+            </p>
+          )}
         </div>
         <Button
           type="button"
           variant="outline"
           size="sm"
-          disabled={uploading || urls.length >= MAX_REFERENCE_IMAGES}
+          disabled={uploading || urls.length >= MAX_ITEM_REFERENCE_IMAGES}
           onClick={() => inputRef.current?.click()}
         >
           <ImagePlus />
@@ -76,7 +88,7 @@ export function ReferenceImagesField({
         </Button>
         <Input
           ref={inputRef}
-          id="reference-images"
+          id={id}
           type="file"
           accept="image/png,image/jpeg"
           multiple
@@ -97,8 +109,12 @@ export function ReferenceImagesField({
             >
               <img
                 src={url}
-                alt="Imagen de referencia"
-                className="h-28 w-full object-contain p-1"
+                alt="Imagen de referencia del ítem"
+                className={
+                  compact
+                    ? 'h-20 w-full object-contain p-1'
+                    : 'h-28 w-full object-contain p-1'
+                }
               />
               <Button
                 type="button"

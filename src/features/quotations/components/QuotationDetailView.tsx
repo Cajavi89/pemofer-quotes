@@ -12,13 +12,11 @@ import { Button } from '@/components/ui/button'
 import { PageTitle } from '@/components/shared/PageTitle'
 import type { Customer } from '@/features/customers/interfaces/customer'
 import { QuotationPdfButton } from '@/features/quotations/components/QuotationPdfButton'
-import { QuotationReferenceImagesEditor } from '@/features/quotations/components/QuotationReferenceImagesEditor'
+import { QuotationItemImagesEditor } from '@/features/quotations/components/QuotationReferenceImagesEditor'
 import { QuotationStatusBadge } from '@/features/quotations/components/QuotationStatusBadge'
+import { QuotationTotals } from '@/features/quotations/components/QuotationTotals'
 import type { Quotation } from '@/features/quotations/interfaces/quotation'
-import {
-  getLineTotal,
-  getQuotationSubtotal
-} from '@/features/quotations/utils/quotationTotals'
+import { getLineTotal } from '@/features/quotations/utils/quotationTotals'
 import { routes } from '@/constants/routes'
 import { COMPANY } from '@/lib/company'
 import { formatDate } from '@/lib/dates'
@@ -46,7 +44,6 @@ export function QuotationDetailView({
   quotation: Quotation
   customer: Customer | null
 }) {
-  const subtotal = getQuotationSubtotal(quotation.items)
 
   return (
     <section className="space-y-4">
@@ -108,8 +105,8 @@ export function QuotationDetailView({
             label="IVA"
             value={
               quotation.pricesPlusVat
-                ? 'Precios más IVA'
-                : 'Precios incluyen IVA'
+                ? 'Incluye IVA en los valores'
+                : 'No incluye IVA en los valores'
             }
           />
         </CardContent>
@@ -130,6 +127,7 @@ export function QuotationDetailView({
                 <TableHead className="text-right">Valor unitario</TableHead>
                 <TableHead>Entrega</TableHead>
                 <TableHead>Observaciones</TableHead>
+                <TableHead>Referencia</TableHead>
                 <TableHead className="text-right">Valor total</TableHead>
               </TableRow>
             </TableHeader>
@@ -147,6 +145,13 @@ export function QuotationDetailView({
                   </TableCell>
                   <TableCell>{item.deliveryTime}</TableCell>
                   <TableCell>{item.observations || '—'}</TableCell>
+                  <TableCell className="min-w-48 align-top">
+                    <QuotationItemImagesEditor
+                      quotationId={quotation.id}
+                      itemId={item.id}
+                      urls={item.referenceImageUrls ?? []}
+                    />
+                  </TableCell>
                   <TableCell className="text-right">
                     {formatCOP(getLineTotal(item.quantity, item.unitPrice))}
                   </TableCell>
@@ -157,16 +162,12 @@ export function QuotationDetailView({
         </CardContent>
       </Card>
 
-      <QuotationReferenceImagesEditor
-        quotationId={quotation.id}
-        urls={quotation.referenceImageUrls ?? []}
-      />
-
       <div className="flex justify-end">
-        <div className="text-right">
-          <p className="text-sm text-muted-foreground">Subtotal COP</p>
-          <p className="text-lg font-semibold">{formatCOP(subtotal)}</p>
-        </div>
+        <QuotationTotals
+          items={quotation.items}
+          includeVat={quotation.pricesPlusVat}
+          align="end"
+        />
       </div>
     </section>
   )

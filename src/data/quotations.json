@@ -1,5 +1,51 @@
 [
   {
+    "clientReference": "095-1234566",
+    "subject": "Esto es una cotizacion de prueba",
+    "customerId": "cus-acme",
+    "contactName": "Carlos Peña",
+    "contactRole": "Jefe de compras",
+    "date": "2026-09-17",
+    "validityDays": 5,
+    "paymentTerms": "Crédito 30 días",
+    "deliveryPlace": "Bogotá",
+    "pricesPlusVat": true,
+    "signerName": "Claudia Rodríguez",
+    "signerPhone": "3227103774",
+    "status": "draft",
+    "nextFollowUpAt": "",
+    "items": [
+      {
+        "productId": "prd-llanta-mt",
+        "description": "Llanta Hankook Dynapro MT 265/70 R16",
+        "quantity": 1,
+        "unit": "UNIDAD",
+        "unitPrice": 780000,
+        "deliveryTime": "2 días",
+        "observations": "es una llanta muy buena",
+        "referenceImageUrls": [
+          "/uploads/quotations/ce9a7296-f06d-427d-b4ad-ce7f505d3013.png"
+        ],
+        "id": "55f5096f-d987-4c6e-83c7-374cdf7fe147"
+      },
+      {
+        "productId": "prd-brida-2",
+        "description": "Brida PVC 2\"",
+        "quantity": 1,
+        "unit": "UNIDAD",
+        "unitPrice": 28900,
+        "deliveryTime": "2 días",
+        "observations": "para unir tubos",
+        "referenceImageUrls": [],
+        "id": "b7fb2f18-e15a-4057-ae8f-f1886647b08e"
+      }
+    ],
+    "id": "5847509c-9cd0-4c75-9586-49ae0eede6a8",
+    "number": "20260516",
+    "createdAt": "2026-09-17T23:44:33.042Z",
+    "referenceImageUrls": []
+  },
+  {
     "id": "quo-20260398",
     "number": "20260398",
     "clientReference": "O95-1267-96192641360",

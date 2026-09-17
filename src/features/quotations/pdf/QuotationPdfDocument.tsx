@@ -10,7 +10,8 @@ import type { Customer } from '@/features/customers/interfaces/customer'
 import type { Quotation } from '@/features/quotations/interfaces/quotation'
 import {
   getLineTotal,
-  getQuotationSubtotal
+  getQuotationAmounts,
+  VAT_PERCENT
 } from '@/features/quotations/utils/quotationTotals'
 import { COMPANY } from '@/lib/company'
 import { formatLetterDate } from '@/lib/dates'
@@ -77,15 +78,9 @@ const styles = StyleSheet.create({
     fontFamily: 'Helvetica-Bold',
     textTransform: 'uppercase'
   },
-  body: {
-    flexDirection: 'row',
-    gap: 10
-  },
-  tableWrap: {
-    flex: 1
-  },
   tableHeader: {
     flexDirection: 'row',
+    alignItems: 'center',
     backgroundColor: navy,
     color: '#FFFFFF',
     paddingVertical: 4,
@@ -93,21 +88,24 @@ const styles = StyleSheet.create({
   },
   tableRow: {
     flexDirection: 'row',
-    paddingVertical: 4,
+    alignItems: 'center',
+    paddingVertical: 3,
     paddingHorizontal: 3,
     borderBottomWidth: 0.5,
-    borderBottomColor: '#D6D3CD'
+    borderBottomColor: '#D6D3CD',
+    minHeight: 42
   },
   striped: {
     backgroundColor: stripe
   },
-  colItem: { width: '5%', paddingRight: 3 },
-  colDesc: { width: '24%', paddingRight: 3 },
-  colQty: { width: '9%', paddingRight: 3 },
-  colUnit: { width: '10%', paddingRight: 3 },
-  colMoney: { width: '13%', paddingRight: 3 },
-  colDelivery: { width: '12%', paddingRight: 3 },
-  colNotes: { width: '14%' },
+  colItem: { width: '4%', paddingRight: 3 },
+  colPhoto: { width: '10%', paddingRight: 3, flexDirection: 'row', gap: 2 },
+  colDesc: { width: '22%', paddingRight: 3 },
+  colQty: { width: '8%', paddingRight: 3 },
+  colUnit: { width: '8%', paddingRight: 3 },
+  colMoney: { width: '12%', paddingRight: 3 },
+  colDelivery: { width: '11%', paddingRight: 3 },
+  colNotes: { width: '13%' },
   headerCell: {
     color: '#FFFFFF',
     fontFamily: 'Helvetica-Bold',
@@ -119,25 +117,15 @@ const styles = StyleSheet.create({
   right: {
     textAlign: 'right'
   },
-  imagesColumn: {
-    width: 150
+  thumbWrap: {
+    width: 36,
+    height: 36,
+    overflow: 'hidden'
   },
-  imageCard: {
-    marginBottom: 8,
-    padding: 4,
-    borderWidth: 0.6,
-    borderColor: gold
-  },
-  referenceImage: {
-    width: 142,
-    height: 90,
+  thumb: {
+    width: 36,
+    height: 36,
     objectFit: 'contain'
-  },
-  imageCaption: {
-    marginTop: 3,
-    fontSize: 6.5,
-    color: muted,
-    textAlign: 'center'
   },
   totals: {
     marginTop: 8,
@@ -145,17 +133,24 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end'
   },
   totalsBox: {
-    minWidth: 180,
-    alignItems: 'flex-end'
+    minWidth: 200,
+    gap: 2
+  },
+  totalRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    gap: 16
   },
   totalLabel: {
     fontSize: 8,
     fontFamily: 'Helvetica-Bold'
   },
+  totalMuted: {
+    fontSize: 8
+  },
   totalValue: {
     fontSize: 11,
-    fontFamily: 'Helvetica-Bold',
-    marginTop: 2
+    fontFamily: 'Helvetica-Bold'
   },
   conditions: {
     marginTop: 12,
@@ -183,6 +178,7 @@ const styles = StyleSheet.create({
 
 const TABLE_HEADERS = [
   { key: 'item', label: 'Ítem', style: styles.colItem },
+  { key: 'photo', label: 'Foto', style: styles.colPhoto },
   { key: 'desc', label: 'Descripción', style: styles.colDesc },
   { key: 'qty', label: 'Cantidad', style: styles.colQty },
   { key: 'unit', label: 'Unidad', style: styles.colUnit },
@@ -196,14 +192,17 @@ export function QuotationPdfDocument({
   quotation,
   customer,
   logoSrc,
-  referenceImages
+  itemImages
 }: {
   quotation: Quotation
   customer: Customer | null
   logoSrc: string
-  referenceImages: string[]
+  itemImages: Record<string, string[]>
 }) {
-  const subtotal = getQuotationSubtotal(quotation.items)
+  const { subtotal, vatAmount, total } = getQuotationAmounts(
+    quotation.items,
+    quotation.pricesPlusVat
+  )
   const title = [
     'COTIZACIÓN',
     quotation.clientReference,
@@ -249,66 +248,74 @@ export function QuotationPdfDocument({
 
         <Text style={styles.title}>{title}</Text>
 
-        <View style={styles.body}>
-          <View style={styles.tableWrap}>
-            <View style={styles.tableHeader} wrap={false}>
-              {TABLE_HEADERS.map((column) => (
-                <Text
-                  key={column.key}
-                  style={[styles.headerCell, column.style]}
-                >
-                  {column.label}
-                </Text>
-              ))}
-            </View>
-            {quotation.items.map((item, index) => (
-              <View
-                key={item.id}
-                style={[
-                  styles.tableRow,
-                  index % 2 === 1 ? styles.striped : {}
-                ]}
-                wrap={false}
-              >
-                <Text style={[styles.cell, styles.colItem]}>{index + 1}</Text>
-                <Text style={[styles.cell, styles.colDesc]}>
-                  {item.description}
-                </Text>
-                <Text style={[styles.cell, styles.colQty]}>{item.quantity}</Text>
-                <Text style={[styles.cell, styles.colUnit]}>{item.unit}</Text>
-                <Text style={[styles.cell, styles.colMoney, styles.right]}>
-                  {formatCOP(item.unitPrice)}
-                </Text>
-                <Text style={[styles.cell, styles.colMoney, styles.right]}>
-                  {formatCOP(getLineTotal(item.quantity, item.unitPrice))}
-                </Text>
-                <Text style={[styles.cell, styles.colDelivery]}>
-                  {item.deliveryTime}
-                </Text>
-                <Text style={[styles.cell, styles.colNotes]}>
-                  {item.observations || ''}
-                </Text>
+        <View style={styles.tableHeader} wrap={false}>
+          {TABLE_HEADERS.map((column) => (
+            <Text key={column.key} style={[styles.headerCell, column.style]}>
+              {column.label}
+            </Text>
+          ))}
+        </View>
+        {quotation.items.map((item, index) => {
+          const images = (itemImages[item.id] ?? []).slice(0, 2)
+          return (
+            <View
+              key={item.id}
+              style={[styles.tableRow, index % 2 === 1 ? styles.striped : {}]}
+              wrap={false}
+            >
+              <Text style={[styles.cell, styles.colItem]}>{index + 1}</Text>
+              <View style={styles.colPhoto}>
+                {images.map((src) => (
+                  <View key={src} style={styles.thumbWrap} wrap={false}>
+                    <Image src={src} style={styles.thumb} />
+                  </View>
+                ))}
               </View>
-            ))}
+              <Text style={[styles.cell, styles.colDesc]}>
+                {item.description}
+              </Text>
+              <Text style={[styles.cell, styles.colQty]}>{item.quantity}</Text>
+              <Text style={[styles.cell, styles.colUnit]}>{item.unit}</Text>
+              <Text style={[styles.cell, styles.colMoney, styles.right]}>
+                {formatCOP(item.unitPrice)}
+              </Text>
+              <Text style={[styles.cell, styles.colMoney, styles.right]}>
+                {formatCOP(getLineTotal(item.quantity, item.unitPrice))}
+              </Text>
+              <Text style={[styles.cell, styles.colDelivery]}>
+                {item.deliveryTime}
+              </Text>
+              <Text style={[styles.cell, styles.colNotes]}>
+                {item.observations || ''}
+              </Text>
+            </View>
+          )
+        })}
 
-            <View style={styles.totals}>
-              <View style={styles.totalsBox}>
-                <Text style={styles.totalLabel}>SUBTOTAL COP</Text>
+        <View style={styles.totals}>
+          <View style={styles.totalsBox}>
+            {quotation.pricesPlusVat ? (
+              <>
+                <View style={styles.totalRow}>
+                  <Text style={styles.totalLabel}>SUBTOTAL</Text>
+                  <Text style={styles.totalMuted}>{formatCOP(subtotal)}</Text>
+                </View>
+                <View style={styles.totalRow}>
+                  <Text style={styles.totalLabel}>IVA ({VAT_PERCENT}%)</Text>
+                  <Text style={styles.totalMuted}>{formatCOP(vatAmount)}</Text>
+                </View>
+                <View style={styles.totalRow}>
+                  <Text style={styles.totalLabel}>TOTAL COP</Text>
+                  <Text style={styles.totalValue}>{formatCOP(total)}</Text>
+                </View>
+              </>
+            ) : (
+              <View style={styles.totalRow}>
+                <Text style={styles.totalLabel}>TOTAL COP</Text>
                 <Text style={styles.totalValue}>{formatCOP(subtotal)}</Text>
               </View>
-            </View>
+            )}
           </View>
-
-          {referenceImages.length > 0 ? (
-            <View style={styles.imagesColumn}>
-              {referenceImages.map((src, index) => (
-                <View key={`${src}-${index}`} style={styles.imageCard} wrap={false}>
-                  <Image src={src} style={styles.referenceImage} />
-                  <Text style={styles.imageCaption}>Imagen de referencia</Text>
-                </View>
-              ))}
-            </View>
-          ) : null}
         </View>
 
         <View style={styles.conditions}>
@@ -316,7 +323,9 @@ export function QuotationPdfDocument({
             FORMA DE PAGO: {quotation.paymentTerms.toUpperCase()}
           </Text>
           <Text style={styles.condition}>
-            {quotation.pricesPlusVat ? 'PRECIOS MÁS IVA' : 'PRECIOS INCLUYEN IVA'}
+            {quotation.pricesPlusVat
+              ? `INCLUYE IVA (${VAT_PERCENT}%) EN LOS VALORES`
+              : 'NO INCLUYE IVA EN LOS VALORES'}
           </Text>
           <Text style={styles.condition}>
             LUGAR DE ENTREGA: {quotation.deliveryPlace.toUpperCase()}
