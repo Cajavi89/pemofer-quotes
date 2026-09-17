@@ -24,6 +24,17 @@ export function formatFollowUpLabel(nextFollowUpAt?: string, todayIso = getToday
   return `hace ${Math.abs(days)} días`
 }
 
+export function addDaysToIsoDate(isoDate: string, days: number) {
+  const [year, month, day] = isoDate.split('-').map(Number)
+  if (!year || !month || !day) return isoDate
+
+  const date = new Date(year, month - 1, day + days)
+  const nextYear = date.getFullYear()
+  const nextMonth = String(date.getMonth() + 1).padStart(2, '0')
+  const nextDay = String(date.getDate()).padStart(2, '0')
+  return `${nextYear}-${nextMonth}-${nextDay}`
+}
+
 export function formatDate(isoDate: string) {
   const [year, month, day] = isoDate.split('-').map(Number)
   if (!year || !month || !day) return isoDate

@@ -55,13 +55,21 @@ export function QuotationsFiltersBar({
       }
     }
 
+    params.delete('page')
+
     const query = params.toString()
     router.replace(query ? `${routes.quotations}?${query}` : routes.quotations)
   }
 
   function clearFilters() {
     setClientQuery('')
-    router.replace(routes.quotations)
+    const params = new URLSearchParams()
+    const pageSize = searchParams.get('pageSize')
+    const selected = searchParams.get('selected')
+    if (pageSize) params.set('pageSize', pageSize)
+    if (selected) params.set('selected', selected)
+    const query = params.toString()
+    router.replace(query ? `${routes.quotations}?${query}` : routes.quotations)
   }
 
   return (

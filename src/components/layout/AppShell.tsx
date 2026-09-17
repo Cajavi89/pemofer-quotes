@@ -15,7 +15,9 @@ export function AppShell({ children }: { children: React.ReactNode }) {
           'peer-data-[state=expanded]:w-[calc(100%-var(--sidebar-width))]'
         )}
       >
-        <div className="h-full overflow-y-auto px-4 py-4">{children}</div>
+        <div className="flex h-full min-h-0 flex-col overflow-y-auto px-4 py-4">
+          {children}
+        </div>
       </main>
     </SidebarProvider>
   )

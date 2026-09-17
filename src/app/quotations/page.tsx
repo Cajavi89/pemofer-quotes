@@ -6,6 +6,7 @@ import {
   filterQuotations,
   parseQuotationFilters
 } from '@/features/quotations/utils/filterQuotations'
+import { parseQuotationPagination } from '@/features/quotations/utils/paginateQuotations'
 
 export const dynamic = 'force-dynamic'
 
@@ -20,6 +21,7 @@ export default async function QuotationsPage({
     searchParams
   ])
   const filters = parseQuotationFilters(params)
+  const pagination = parseQuotationPagination(params)
   const filteredQuotations = filterQuotations(quotations, customers, filters)
 
   return (
@@ -29,6 +31,7 @@ export default async function QuotationsPage({
         filteredQuotations={filteredQuotations}
         customers={customers}
         filters={filters}
+        pagination={pagination}
       />
     </Suspense>
   )
