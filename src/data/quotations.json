@@ -116,7 +116,7 @@
     "pricesPlusVat": true,
     "signerName": "Angie Martínez",
     "signerPhone": "3201112233",
-    "status": "draft",
+    "status": "lost",
     "createdAt": "2026-09-14T15:05:00.000Z",
     "items": [
       {
@@ -316,8 +316,7 @@
     "pricesPlusVat": true,
     "signerName": "Angie Martínez",
     "signerPhone": "3201112233",
-    "status": "sent",
-    "nextFollowUpAt": "2026-08-15",
+    "status": "awarded",
     "createdAt": "2026-08-08T10:00:00.000Z",
     "items": [
       {
@@ -820,7 +819,7 @@
     "pricesPlusVat": true,
     "signerName": "Liliana Pérez",
     "signerPhone": "3154447788",
-    "status": "expired",
+    "status": "awarded",
     "createdAt": "2026-09-18T10:00:00.000Z",
     "items": [
       {
@@ -1252,8 +1251,7 @@
     "pricesPlusVat": true,
     "signerName": "Angie Martínez",
     "signerPhone": "3201112233",
-    "status": "sent",
-    "nextFollowUpAt": "2026-09-02",
+    "status": "awarded",
     "createdAt": "2026-08-26T10:00:00.000Z",
     "items": [
       {
@@ -1283,8 +1281,7 @@
     "pricesPlusVat": true,
     "signerName": "Liliana Pérez",
     "signerPhone": "3154447788",
-    "status": "follow_up",
-    "nextFollowUpAt": "2026-10-04",
+    "status": "lost",
     "createdAt": "2026-09-27T10:00:00.000Z",
     "items": [
       {
@@ -1756,7 +1753,7 @@
     "pricesPlusVat": true,
     "signerName": "Liliana Pérez",
     "signerPhone": "3154447788",
-    "status": "expired",
+    "status": "awarded",
     "createdAt": "2026-09-09T10:00:00.000Z",
     "items": [
       {
@@ -2128,8 +2125,7 @@
     "pricesPlusVat": true,
     "signerName": "Angie Martínez",
     "signerPhone": "3201112233",
-    "status": "sent",
-    "nextFollowUpAt": "2026-08-24",
+    "status": "awarded",
     "createdAt": "2026-08-17T10:00:00.000Z",
     "items": [
       {
@@ -2189,8 +2185,7 @@
     "pricesPlusVat": true,
     "signerName": "Liliana Pérez",
     "signerPhone": "3154447788",
-    "status": "follow_up",
-    "nextFollowUpAt": "2026-09-25",
+    "status": "lost",
     "createdAt": "2026-09-18T10:00:00.000Z",
     "items": [
       {
@@ -2632,7 +2627,7 @@
     "pricesPlusVat": true,
     "signerName": "Liliana Pérez",
     "signerPhone": "3154447788",
-    "status": "expired",
+    "status": "awarded",
     "createdAt": "2026-09-27T10:00:00.000Z",
     "items": [
       {
@@ -3548,7 +3543,7 @@
     "pricesPlusVat": true,
     "signerName": "Liliana Pérez",
     "signerPhone": "3154447788",
-    "status": "expired",
+    "status": "awarded",
     "createdAt": "2026-09-18T10:00:00.000Z",
     "items": [
       {
@@ -4454,7 +4449,7 @@
     "pricesPlusVat": true,
     "signerName": "Liliana Pérez",
     "signerPhone": "3154447788",
-    "status": "expired",
+    "status": "lost",
     "createdAt": "2026-09-09T10:00:00.000Z",
     "items": [
       {
