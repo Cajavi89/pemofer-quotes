@@ -31,7 +31,13 @@ const emptyValues: CustomerFormValues = {
   }
 }
 
-export function CustomerForm() {
+export function CustomerForm({
+  onSuccess,
+  onCancel
+}: {
+  onSuccess?: () => void
+  onCancel?: () => void
+}) {
   const router = useRouter()
   const form = useForm<CustomerFormValues>({
     resolver: zodResolver(customerSchema),
@@ -53,6 +59,7 @@ export function CustomerForm() {
     toast.success('Cliente creado')
     form.reset(emptyValues)
     router.refresh()
+    onSuccess?.()
   })
 
   return (
@@ -152,7 +159,17 @@ export function CustomerForm() {
             </FormItem>
           )}
         />
-        <div className="md:col-span-2">
+        <div className="flex flex-wrap gap-2 md:col-span-2">
+          {onCancel ? (
+            <Button
+              type="button"
+              variant="outline"
+              onClick={onCancel}
+              disabled={form.formState.isSubmitting}
+            >
+              Cancelar
+            </Button>
+          ) : null}
           <Button type="submit" disabled={form.formState.isSubmitting}>
             Guardar cliente
           </Button>
